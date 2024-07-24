@@ -12,12 +12,18 @@ pub fn run() {
         println!("Input temperature: ");
         let mut temperature = String::new();
 
+        // Input stream to accept temperature and save it to the variable temperature
         io::stdin()
             .read_line(&mut temperature)
             .expect("Failed to read line");
 
+        // This block trims and parses the temperature to an f64 variable and binds it to temperature 
         let temperature: f64 = match temperature.trim().parse() {
+            // If everything is Ok, the evaluated expression should be returned and binded to temperature
+            // Everything being Ok means the input is something that can be converted to an f64
             Ok(temp) => temp,
+
+            // If the input is something that can be parsed to an f64, show a message and skip the rest of the code
             Err(_) => {
                 println!("Enter a valid temperature value");
                 continue;
@@ -25,6 +31,7 @@ pub fn run() {
         };
 
         println!("Is the temperature in (C)elsius or (F)ahrenheit?");
+        // Get the unit and bind it to the variable
         let mut celsius_or_fahrenheit = String::new();
         io::stdin()
             .read_line(&mut celsius_or_fahrenheit)
@@ -46,7 +53,7 @@ pub fn run() {
                 continue;
             }
         }
-        println!("Convert agaim?(y/n)");
+        println!("Convert again?(y/n)");
         let mut convert_again = String::new();
         io::stdin()
             .read_line(&mut convert_again)
