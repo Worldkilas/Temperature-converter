@@ -17,10 +17,10 @@ pub fn run() {
             .read_line(&mut temperature)
             .expect("Failed to read line");
 
-        // This block trims and parses the temperature to an f64 variable and binds it to temperature 
+        // This block trims and parses the temperature to an f64 variable and binds it to temperature
         let temperature: f64 = match temperature.trim().parse() {
             // If everything is Ok, the evaluated expression should be returned and binded to temperature
-            // Everything being Ok means the input is something that can be converted to an f64
+            // Everything being Ok means the input is something that can reasonably be converted to an f64
             Ok(temp) => temp,
 
             // If the input is something that can be parsed to an f64, show a message and skip the rest of the code
@@ -62,13 +62,13 @@ pub fn run() {
         if convert_again == Some('N') || convert_again == Some('n') {
             break;
         }
+        // println!("{temperature}");
     }
-    // println!("{temperature}");
-}
 
-fn fahrenheit_to_celsius(temp_in_fahrenheit: f64) -> f64 {
-    (temp_in_fahrenheit * 5.0 / 9.0) - 32.0
-}
-fn celsius_to_fahrenheit(temp_in_celsius: f64) -> f64 {
-    (temp_in_celsius * 9.0 / 5.0) + 32.0
+    fn fahrenheit_to_celsius(temp_in_fahrenheit: f64) -> f64 {
+        (temp_in_fahrenheit * 5.0 / 9.0) - 32.0
+    }
+    fn celsius_to_fahrenheit(temp_in_celsius: f64) -> f64 {
+        (temp_in_celsius * 9.0 / 5.0) + 32.0
+    }
 }
